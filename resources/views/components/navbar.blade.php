@@ -15,7 +15,8 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             @if($signed_in)
-                                <x-custom-nav-link class="block" href="/dashboard" :current="request()->is('dashboard') || request()->is('dashboard/*')">
+                                <x-custom-nav-link class="block" href="/dashboard"
+                                                   :current="request()->is('dashboard') || request()->is('dashboard/*')">
                                     Dashboard
                                 </x-custom-nav-link>
                             @endif
@@ -113,6 +114,7 @@
     document.addEventListener('alpine:destroy', () => {
         window.removeEventListener('scroll', handler);
     });" x-show="open"
+         @click.outside="open = false"
          x-transition:enter="transition ease-out duration-200 transform" x-transition:enter-start="translate-x-full"
          x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200 transform"
          x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
@@ -120,7 +122,8 @@
          id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
             @if($signed_in)
-                <x-custom-nav-link class="block" href="/dashboard" :current="request()->is('dashboard') || request()->is('dashboard/*')">
+                <x-custom-nav-link class="block" href="/dashboard"
+                                   :current="request()->is('dashboard') || request()->is('dashboard/*')">
                     Dashboard
                 </x-custom-nav-link>
             @endif
