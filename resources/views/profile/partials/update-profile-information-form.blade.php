@@ -166,6 +166,7 @@
             imageResizeUpscale:false,
             server: {
                 url: '/upload',
+                method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 }
