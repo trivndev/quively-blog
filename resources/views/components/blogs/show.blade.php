@@ -47,7 +47,7 @@
             {{ $post->title }}</h4>
         <a href="/blog?category={{ $post->category->slug }}"
            title="Go to {{ $post->category->name }} category"
-           class="{{ $post->category->color }} dark:bg-primary-200 dark:text-primary-800 hover:bg-primary-200 dark:hover:bg-primary-300 block w-fit items-center rounded px-2.5 py-2 text-xs font-medium text-gray-800 transition-all duration-300 ease-in-out hover:text-black">
+           class="{{ $post->category->color }} dark:bg-primary-200 dark:text-primary-800 hover:bg-primary-200 dark:hover:bg-primary-300 block w-fit items-center rounded px-2.5 py-2 text-xs font-medium text-gray-800 transition-all duration-300 ease-in-out hover:text-black no-underline">
             {{ $post->category->name }}
         </a>
         <div class="*:text-justify">
