@@ -50,6 +50,14 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('avatar')) {
+            $path = $request->file('avatar')->store('tmp', config('filesystems.default_public_disk'));
+        }
+
+        return $path;
+    }
     /**
      * Delete the user's account.
      */
@@ -71,12 +79,5 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-    public function upload(Request $request)
-    {
-        if ($request->hasFile('avatar')) {
-            $path = $request->file('avatar')->store('tmp', config('filesystems.default_public_disk'));
-        }
 
-        return $path;
-    }
 }
