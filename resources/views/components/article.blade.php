@@ -1,6 +1,6 @@
 @if ($isDetail)
     <article
-        class="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full max-w-7xl bg-white px-12 py-8 rounded-lg">
+        class="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full max-w-7xl bg-white px-4 sm:px-12 py-8 rounded-lg">
         <div class="mx-auto w-full mb-6">
             <a class="text-base font-medium text-blue-500 hover:underline underline-offset-2 hover:text-blue-800 transition-all duration-300 ease-in-out"
                href="/blog">&laquo; Back to all blogs</a>
