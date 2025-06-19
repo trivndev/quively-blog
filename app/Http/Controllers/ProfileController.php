@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use PSpell\Config;
 
 class ProfileController extends Controller
 {
@@ -36,11 +37,11 @@ class ProfileController extends Controller
 
         if ($request->avatar) {
             if (!empty($request->user()->avatar)) {
-                Storage::disk('public')->delete($request->user()->avatar);
+                Storage::disk(config('filesystem.default_public_disk'))->delete($request->user()->avatar);
             }
 
             $newFileName = Str::after($request->avatar, 'tmp/');
-            Storage::disk('public')->move($request->avatar, "img/$newFileName");
+            Storage::disk(config('filesystem.default_public_disk'))->move($request->avatar, "img/$newFileName");
             $validated['avatar'] = "img/$newFileName";
         }
 
@@ -73,7 +74,7 @@ class ProfileController extends Controller
     public function upload(Request $request)
     {
         if ($request->hasFile('avatar')) {
-            $path = $request->file('avatar')->store('tmp', 'public');
+            $path = $request->file('avatar')->store('tmp', config('filesystem.default_public_disk'));
         }
 
         return $path;
