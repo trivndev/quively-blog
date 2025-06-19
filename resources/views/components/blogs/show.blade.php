@@ -42,7 +42,7 @@
             </button>
         </div>
     </header>
-    <div id="content" class="space-y-0">
+    <div id="content" class="space-y-2">
         <h4 class="text-3xl font-extrabold text-gray-900 lg:text-4xl dark:text-white w-full leading-none break-words">
             {{ $post->title }}</h4>
         <a href="/blog?category={{ $post->category->slug }}"
