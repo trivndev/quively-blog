@@ -147,6 +147,7 @@
     <script
         src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script>
         FilePond.registerPlugin(FilePondPluginImagePreview);
@@ -154,6 +155,7 @@
         FilePond.registerPlugin(FilePondPluginFileValidateSize);
         FilePond.registerPlugin(FilePondPluginImageResize);
         FilePond.registerPlugin(FilePondPluginImageTransform);
+        FilePond.registerPlugin(FilePondPluginImageCrop);
 
         const inputElement = document.querySelector('#avatar');
         const pond = FilePond.create(inputElement, {
@@ -163,7 +165,8 @@
             maxFileSize: '2MB',
             imageResizeTargetWidth: 256,
             imageResizeTargetHeight: 256,
-            imageResizeUpscale:false,
+            imageResizeUpscale: false,
+            imageCropAspectRatio :'1:1',
             server: {
                 url: '/upload',
                 method: 'POST',
