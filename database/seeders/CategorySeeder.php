@@ -41,5 +41,10 @@ class CategorySeeder extends Seeder
             'slug' => 'machine-learning',
             'color' => $bg[random_int(0, count($bg)-1)]
         ]);
+        Category::create([
+            'name' => 'Mobile Development',
+            'slug' => 'mobile-development',
+            'color' => $bg[random_int(0, count($bg)-1)]
+        ]);
     }
 }
