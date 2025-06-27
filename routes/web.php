@@ -24,24 +24,6 @@ Route::get('/blog/{slug}', function ($slug) {
     ]);
 });
 
-Route::get(' /about', function () {
-    return view('about', ['title' => 'About']);
-});
-
-Route::get(' /contact', function () {
-    return view('contact', ['title' => 'Contact']);
-});
-
-Route::get('/dashboard', [BlogController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::post('/dashboard', [BlogController::class, 'store'])->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/dashboard/create', [BlogController::class, 'create'])->middleware(['auth', 'verified']);
-
-Route::delete('/dashboard/{post:slug}', [BlogController::class, 'destroy'])->middleware(['auth', 'verified']);
-
-Route::get('/dashboard/{post:slug}', [BlogController::class, 'show'])->middleware(['auth', 'verified']);
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [BlogController::class, 'index'])->name('dashboard');
     Route::post('/dashboard', [BlogController::class, 'store']);
