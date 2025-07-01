@@ -17,15 +17,17 @@ return new class extends Migration
             $table->string('title');
             $table->text('blog_content');
             $table->foreignId('author_id')->constrained(
-                    table: 'users',
-                    column: 'id',
-                    indexName: 'blogs_author_id'
-            );
+                table: 'users',
+                column: 'id',
+                indexName: 'blogs_author_id'
+            )
+                ->onDelete('set null');
             $table->foreignId('category_id')->constrained(
-                    table: 'categories',
-                    column: 'id',
-                    indexName: 'blogs_category_id'
-            );
+                table: 'categories',
+                column: 'id',
+                indexName: 'blogs_category_id'
+            )
+                ->onDelete('set null');
             $table->timestamps();
         });
     }

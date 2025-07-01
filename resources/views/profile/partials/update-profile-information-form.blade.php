@@ -159,8 +159,6 @@
 
         const inputElement = document.querySelector('#avatar');
         const pond = FilePond.create(inputElement, {
-
-
             acceptedFileTypes: ['image/jpeg', 'image/png', 'image/jpg'],
             maxFileSize: '2MB',
             imageResizeTargetWidth: 256,

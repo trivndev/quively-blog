@@ -58,7 +58,7 @@
         </div>
         <div class="mt-auto flex items-center justify-between">
             <div class="flex items-center">
-                <a href="/blog?author={{ $post->author->username }}"
+                <a href="/blog?author={{ $post->author->username ?? 'deleted user' }}"
                     title="Read more from {{ ucfirst($post->author->name) }}"
                     class="group flex items-center space-x-2">
                     <img class="h-7 w-7 rounded-full"
