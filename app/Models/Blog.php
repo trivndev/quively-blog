@@ -21,7 +21,7 @@ class Blog extends Model
 
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->onDelete('set null');
     }
 
     public function category(): BelongsTo
@@ -44,4 +44,3 @@ class Blog extends Model
         });
     }
 }
-
