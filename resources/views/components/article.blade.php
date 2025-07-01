@@ -9,7 +9,7 @@
             <address class="mb-6 flex items-center not-italic">
                 <div class="mr-3 inline-flex items-center text-sm text-gray-900 dark:text-white">
                     <img class="mr-4 aspect-square size-fit max-w-12 rounded-full border-2 shadow"
-                        src="{{ $post->author->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
+                        src="{{ $post->author?->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
                         alt="{{ ucfirst($post->author->name ?? 'deleted user') }}'s avatar">
                     <div>
                         <a href="/blog?author={{ $post->author->username ?? 'deleted user' }}" rel="author"

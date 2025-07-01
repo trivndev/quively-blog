@@ -21,6 +21,7 @@ return new class extends Migration
                 column: 'id',
                 indexName: 'blogs_author_id'
             )
+                ->nullable()
                 ->onDelete('set null');
             $table->foreignId('category_id')->constrained(
                 table: 'categories',
