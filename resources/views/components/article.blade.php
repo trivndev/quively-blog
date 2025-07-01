@@ -16,8 +16,8 @@
                     <img class="mr-4 aspect-square size-fit max-w-12 rounded-full border-2 shadow"
                         src="{{ $authorAvatar }}" alt="{{ $authorName }}'s avatar">
                     <div>
-                        <a href="/blog?author={{ $post->author?->username ?? 'deleted user' }}" rel="author"
-                            title="Read more from  ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2)))"
+                        <a href="/blog?author={{ $authorUsername }}" rel="author"
+                            title="Read more from  {{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}"
                             class="text-base font-bold text-gray-900 transition-all duration-300 ease-in-out hover:text-blue-500 dark:text-white">{{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}</a>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                             <time datetime="{{ $post->created_at->toDateString() }}"
