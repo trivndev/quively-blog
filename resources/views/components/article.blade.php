@@ -66,7 +66,7 @@
                         alt="{{ ucfirst($post->author->name ?? 'deleted user') }}'s avatar" />
                     <span
                         class="font-medium transition-all duration-200 ease-in-out hover:text-blue-500 dark:text-white">
-                        {{ ucfirst(implode(' ', array_slice(explode(' ', $post->author->name ?? 'deleted user'), 0, 2))) }}
+                        {{ ucfirst(implode(' ', array_slice(explode(' ', $post->author?->name ?? 'deleted user'), 0, 2))) }}
                     </span>
                 </a>
             </div>
