@@ -65,8 +65,7 @@
                 <a href="/blog?author={{ $authorUsername }}"
                     title="Read more from {{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}"
                     class="group flex items-center space-x-2">
-                    <img class="h-7 w-7 rounded-full"
-                        src="{{ $post->author?->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
+                    <img class="h-7 w-7 rounded-full" src="{{ $authorAvatar }}"
                         alt="{{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}'s avatar" />
                     <span
                         class="font-medium transition-all duration-200 ease-in-out hover:text-blue-500 dark:text-white">
