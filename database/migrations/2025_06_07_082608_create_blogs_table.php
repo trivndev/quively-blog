@@ -22,13 +22,13 @@ return new class extends Migration
                 indexName: 'blogs_author_id'
             )
                 ->nullable()
-                ->onDelete('set null');
+                ->nullOnDelete();
             $table->foreignId('category_id')->constrained(
                 table: 'categories',
                 column: 'id',
                 indexName: 'blogs_category_id'
             )
-                ->onDelete('set null');
+                ->nullOnDelete();
             $table->timestamps();
         });
     }
