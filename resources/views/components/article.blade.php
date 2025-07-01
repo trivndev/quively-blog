@@ -1,3 +1,8 @@
+@php
+    $authorName = $post->author?->name ?? 'deleted user';
+    $authorUsername = $post->author?->username ?? 'deleted user';
+    $authorAvatar = $post->author?->avatar ? asset('storage/' . $post->author?->avatar) : asset('img/default.png');
+@endphp
 @if ($isDetail)
     <article
         class="format format-sm format-blue dark:format-invert sm:format-base lg:format-lg mx-auto w-full max-w-7xl rounded-lg bg-white px-4 py-8 sm:px-6 lg:px-8">
@@ -9,12 +14,11 @@
             <address class="mb-6 flex items-center not-italic">
                 <div class="mr-3 inline-flex items-center text-sm text-gray-900 dark:text-white">
                     <img class="mr-4 aspect-square size-fit max-w-12 rounded-full border-2 shadow"
-                        src="{{ $post->author?->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
-                        alt="{{ ucfirst($post->author?->name ?? 'deleted user') }}'s avatar">
+                        src="{{ $authorAvatar }}" alt="{{ $authorName }}'s avatar">
                     <div>
                         <a href="/blog?author={{ $post->author?->username ?? 'deleted user' }}" rel="author"
-                            title="Read more from {{ ucfirst($post->author?->name ?? 'deleted user') }}"
-                            class="text-base font-bold text-gray-900 transition-all duration-300 ease-in-out hover:text-blue-500 dark:text-white">{{ ucfirst($post->author?->name ?? 'deleted user') }}</a>
+                            title="Read more from  ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2)))"
+                            class="text-base font-bold text-gray-900 transition-all duration-300 ease-in-out hover:text-blue-500 dark:text-white">{{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}</a>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                             <time datetime="{{ $post->created_at->toDateString() }}"
                                 title="{{ $post->created_at->format('F j, Y') }}">{{ $post->created_at->format('F j, Y') }}</time>
@@ -58,15 +62,15 @@
         </div>
         <div class="mt-auto flex items-center justify-between">
             <div class="flex items-center">
-                <a href="/blog?author={{ $post->author?->username ?? 'deleted user' }}"
-                    title="Read more from {{ ucfirst($post->author?->name ?? 'deleted user') }}"
+                <a href="/blog?author={{ $authorUsername }}"
+                    title="Read more from {{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}"
                     class="group flex items-center space-x-2">
                     <img class="h-7 w-7 rounded-full"
                         src="{{ $post->author?->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
-                        alt="{{ ucfirst($post->author?->name ?? 'deleted user') }}'s avatar" />
+                        alt="{{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}'s avatar" />
                     <span
                         class="font-medium transition-all duration-200 ease-in-out hover:text-blue-500 dark:text-white">
-                        {{ ucfirst(implode(' ', array_slice(explode(' ', $post->author?->name ?? 'deleted user'), 0, 2))) }}
+                        {{ ucfirst(implode(' ', array_slice(explode(' ', $authorName), 0, 2))) }}
                     </span>
                 </a>
             </div>
