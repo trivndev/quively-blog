@@ -21,7 +21,7 @@ class Blog extends Model
 
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class)->onDelete('set null');
+        return $this->belongsTo(User::class);
     }
 
     public function category(): BelongsTo
