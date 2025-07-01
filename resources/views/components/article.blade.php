@@ -12,7 +12,7 @@
                         src="{{ $post->author?->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
                         alt="{{ ucfirst($post->author->name ?? 'deleted user') }}'s avatar">
                     <div>
-                        <a href="/blog?author={{ $post->author->username ?? 'deleted user' }}" rel="author"
+                        <a href="/blog?author={{ $post->author?->username ?? 'deleted user' }}" rel="author"
                             title="Read more from {{ ucfirst($post->author->name ?? 'deleted user') }}"
                             class="text-base font-bold text-gray-900 transition-all duration-300 ease-in-out hover:text-blue-500 dark:text-white">{{ ucfirst($post->author->name ?? 'deleted user') }}</a>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
@@ -58,11 +58,11 @@
         </div>
         <div class="mt-auto flex items-center justify-between">
             <div class="flex items-center">
-                <a href="/blog?author={{ $post->author->username ?? 'deleted user' }}"
+                <a href="/blog?author={{ $post->author?->username ?? 'deleted user' }}"
                     title="Read more from {{ ucfirst($post->author->name ?? 'deleted user') }}"
                     class="group flex items-center space-x-2">
                     <img class="h-7 w-7 rounded-full"
-                        src="{{ $post->author->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
+                        src="{{ $post->author?->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
                         alt="{{ ucfirst($post->author->name ?? 'deleted user') }}'s avatar" />
                     <span
                         class="font-medium transition-all duration-200 ease-in-out hover:text-blue-500 dark:text-white">
