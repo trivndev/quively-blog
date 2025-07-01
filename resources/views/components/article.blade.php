@@ -13,7 +13,7 @@
                         alt="{{ ucfirst($post->author?->name ?? 'deleted user') }}'s avatar">
                     <div>
                         <a href="/blog?author={{ $post->author?->username ?? 'deleted user' }}" rel="author"
-                            title="Read more from {{ ucfirst($post->author->name ?? 'deleted user') }}"
+                            title="Read more from {{ ucfirst($post->author?->name ?? 'deleted user') }}"
                             class="text-base font-bold text-gray-900 transition-all duration-300 ease-in-out hover:text-blue-500 dark:text-white">{{ ucfirst($post->author?->name ?? 'deleted user') }}</a>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                             <time datetime="{{ $post->created_at->toDateString() }}"
