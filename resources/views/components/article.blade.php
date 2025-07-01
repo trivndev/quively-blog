@@ -10,11 +10,11 @@
                 <div class="mr-3 inline-flex items-center text-sm text-gray-900 dark:text-white">
                     <img class="mr-4 aspect-square size-fit max-w-12 rounded-full border-2 shadow"
                         src="{{ $post->author->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
-                        alt="{{ ucfirst($post->author->name) }}'s avatar">
+                        alt="{{ ucfirst($post->author->name ?? 'deleted user') }}'s avatar">
                     <div>
                         <a href="/blog?author={{ $post->author->username }}" rel="author"
-                            title="Read more from {{ ucfirst($post->author->name) }}"
-                            class="text-base font-bold text-gray-900 transition-all duration-300 ease-in-out hover:text-blue-500 dark:text-white">{{ ucfirst($post->author->name) }}</a>
+                            title="Read more from {{ ucfirst($post->author->name ?? 'deleted user') }}"
+                            class="text-base font-bold text-gray-900 transition-all duration-300 ease-in-out hover:text-blue-500 dark:text-white">{{ ucfirst($post->author->name ?? 'deleted user') }}</a>
                         <p class="text-sm text-gray-500 dark:text-gray-400">
                             <time datetime="{{ $post->created_at->toDateString() }}"
                                 title="{{ $post->created_at->format('F j, Y') }}">{{ $post->created_at->format('F j, Y') }}</time>
@@ -59,14 +59,14 @@
         <div class="mt-auto flex items-center justify-between">
             <div class="flex items-center">
                 <a href="/blog?author={{ $post->author->username ?? 'deleted user' }}"
-                    title="Read more from {{ ucfirst($post->author->name) }}"
+                    title="Read more from {{ ucfirst($post->author->name ?? 'deleted user') }}"
                     class="group flex items-center space-x-2">
                     <img class="h-7 w-7 rounded-full"
                         src="{{ $post->author->avatar ? asset('storage/' . $post->author->avatar) : asset('img/default.png') }}"
-                        alt="{{ ucfirst($post->author->name) }}'s avatar" />
+                        alt="{{ ucfirst($post->author->name ?? 'deleted user') }}'s avatar" />
                     <span
                         class="font-medium transition-all duration-200 ease-in-out hover:text-blue-500 dark:text-white">
-                        {{ ucfirst(implode(' ', array_slice(explode(' ', $post->author->name), 0, 2))) }}
+                        {{ ucfirst(implode(' ', array_slice(explode(' ', $post->author->name ?? 'deleted user'), 0, 2))) }}
                     </span>
                 </a>
             </div>
