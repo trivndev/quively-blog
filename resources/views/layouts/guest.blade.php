@@ -16,10 +16,10 @@
     </head>
     <body class="text-gray-900 antialiased">
         <x-navbar/>
-        <div class="flex min-h-screen flex-col items-center bg-gray-100 pt-6 justify-center sm:pt-0">
-            <div class="mt-6 w-11/12 overflow-hidden rounded-lg bg-white px-6 py-4 shadow-md sm:w-full sm:max-w-md">
-                {{ $slot }}
-            </div>
-        </div>
+        <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-11/12 overflow-hidden rounded-lg bg-white px-6 py-4 shadow-md sm:w-full sm:max-w-md">
+        {{ $slot }}
+    </div>
+</div>
     </body>
 </html>
