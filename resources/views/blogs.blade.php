@@ -1,6 +1,6 @@
 <x-layout :title="$title">
     <section class="mx-auto my-8 max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
-        <div class="flex flex-col md:flex-row gap-2 items-center justify-between">
+        <div class="flex flex-col md:flex-row gap-2 items-center justify-between    ">
             <form class="md:max-w-md w-full ml-auto">
                 @if(request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
@@ -27,9 +27,11 @@
                 </div>
             </form>
         </div>
+
         @if($posts->hasPages())
             {{ $posts->links() }}
         @endif
+
         @if($posts->count() > 0)
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 md:grid-cols-2">
                 @foreach($posts as $post)

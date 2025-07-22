@@ -1,7 +1,7 @@
 <x-layout :title="$title">
     <div class="mx-auto mb-8 max-w-7xl shrink p-4 sm:p-6 lg:p-8 min-h-screen flex flex-col space-y-8">
-        @if($post    )
-        <x-article :post="$post" :isDetail="true"/>
+        @if($post)
+            <x-article :post="$post" :isDetail="true"/>
         @else
             <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
