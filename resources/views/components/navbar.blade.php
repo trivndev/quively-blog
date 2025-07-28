@@ -9,7 +9,7 @@
                     <div class="shrink-0">
                         <a href="/" class="flex items-center gap-2 text-xl font-bold text-black">
                             <x-application-logo class="size-10 fill-current text-gray-500" />
-                            <span>Quively</span>
+                            <span>{{ env('APP_NAME') }}</span>
                         </a>
                     </div>
                     <div class="hidden md:block">

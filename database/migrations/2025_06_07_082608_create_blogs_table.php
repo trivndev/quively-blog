@@ -16,19 +16,19 @@ return new class extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('blog_content');
-            $table->foreignId('author_id')->constrained(
-                table: 'users',
-                column: 'id',
-                indexName: 'blogs_author_id'
-            )
-                ->nullable()
-                ->nullOnDelete();
-            $table->foreignId('category_id')->constrained(
-                table: 'categories',
-                column: 'id',
-                indexName: 'blogs_category_id'
-            )
-                ->nullOnDelete();
+            $table->foreignId('author_id')->nullable()
+                ->constrained(
+                    table: 'users',
+                    column: 'id',
+                    indexName: 'blogs_author_id'
+                )->nullOnDelete();
+
+            $table->foreignId('category_id')->nullable()
+                ->constrained(
+                    table: 'categories',
+                    column: 'id',
+                    indexName: 'blogs_category_id'
+                )->nullOnDelete();
             $table->timestamps();
         });
     }
