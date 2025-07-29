@@ -43,7 +43,7 @@
         </div>
     </article>
 @else
-    <article
+    <article data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
         class="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 ease-in-out hover:scale-[1.025] dark:border-gray-700 dark:bg-gray-800">
         <div class="mb-2 flex items-center justify-between text-gray-500">
             <a href="/blog?category={{ $post->category->slug }}"
